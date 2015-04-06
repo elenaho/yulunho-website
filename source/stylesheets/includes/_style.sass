@@ -85,31 +85,31 @@ header.main
 
 // The burger menu
 a.burger
-  +block(60px, 60px)
+  +block(40px, 40px)
   position: absolute
-  top: 10px
+  top: 18px
   right: calc(20% - 60px)
   background: $blue
   div
-    +block(31px,6px)
+    +block(22px,4px)
     background: white
-    margin: 12px auto 8px auto
-    +transition(transform 0.4s, width 0.4s)
+    margin: 9px auto 5px auto
+    +transition(transform 0.4s, width 0.3s)
     &+div
       margin-top: 0px
   // hovers
   &:hover div
-    width: 50px
+    width: 30px
   // This class transforms the burger into a close button
   &.ex
     div:nth-child(1)
-      +transform(translateY(14px) rotate(45deg))
-      width: 40px
+      +transform(translateY(9px) rotate(45deg))
+      width: 30px
     div:nth-child(2)
       width: 0px
     div:nth-child(3)
-      +transform(translateY(-14px) rotate(-45deg))
-      width: 40px
+      +transform(translateY(-9px) rotate(-45deg))
+      width: 30px
 
 
 // "article" styling for titles and descriptions
