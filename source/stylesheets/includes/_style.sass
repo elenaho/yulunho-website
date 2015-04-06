@@ -1,0 +1,204 @@
+%light_box_base
+  +block(100%, 100%)
+  position: fixed
+  top: 0px
+  left: 0px
+  background: rgba(255,255,255, 0.85)
+  visibility: hidden
+  opacity: 0
+  +transition(all 0.5s)
+
+  // displayed as open
+  &.open
+    visibility: visible
+    opacity: 1
+
+body
+  background: url("images/sitebg.jpg") fixed center center no-repeat
+  background-size: cover
+  padding-top: 80px
+  &.home
+    background: black
+
+$headHeight: 80px
+
+// home slideshow
+section.home_slide
+  +block(100%, 100%)
+  position: fixed
+  top: 0px
+  left: 0px
+  div
+    +block(100%, 100%)
+    position: fixed
+    top: 0px
+    left: 0px
+    background-repeat: no-repeat
+    background-position: top center
+    background-size: cover
+    visibility: hidden
+    opacity: 0
+    +transition(all 1.6s)
+    &.visible
+      visibility: visible
+      opacity: 1
+
+
+
+// main navigation
+nav.main
+  @extend %light_box_base
+  z-index: 9
+  a
+    +block(100%, 100px)
+    float: left
+    background: $blue
+    color: white
+    text-align: center
+    +font(50,100)
+    +transition(all 0.3s)
+    margin-bottom: 10px
+    margin-top: $headHeight+10
+    &+a
+      margin-top: 0px
+    &:hover
+      +font(65,100)
+
+// header
+header.main
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 100%
+  height: $headHeight
+  background: black
+  z-index: 10
+
+  h1
+    width: 80%
+    margin: 0px auto
+    img
+      float: left
+      height: 50px
+      margin-top: 14px
+
+
+// The burger menu
+a.burger
+  +block(60px, 60px)
+  position: absolute
+  top: 10px
+  right: calc(20% - 60px)
+  background: $blue
+  div
+    +block(31px,6px)
+    background: white
+    margin: 12px auto 8px auto
+    +transition(transform 0.4s, width 0.4s)
+    &+div
+      margin-top: 0px
+  // hovers
+  &:hover div
+    width: 50px
+  // This class transforms the burger into a close button
+  &.ex
+    div:nth-child(1)
+      +transform(translateY(14px) rotate(45deg))
+      width: 40px
+    div:nth-child(2)
+      width: 0px
+    div:nth-child(3)
+      +transform(translateY(-14px) rotate(-45deg))
+      width: 40px
+
+
+// "article" styling for titles and descriptions
+article.project
+  h1
+    width: 80%
+    color: $blue
+    margin: 30px auto
+    font-weight: 300
+    +font(42,50)
+
+  section.desc
+    width: 100%
+    padding: 24px 0px
+    background: black
+    div
+      display: block
+      width: 80%
+      margin: 0px auto
+    p
+      width: 50%
+      min-width: 200px
+      color: white
+      +font(24,28)
+
++mq(s)
+  article.project section.desc p
+    width: 100%
+
+// project list styling
+.projects
+  width: 80%
+  margin: 30px auto
+
+  a
+    +block(45%, auto)
+    min-height: 200px
+    float: left
+    margin: 0px 5% 20px 0px
+    overflow: hidden
+    background: black
+    position: relative
+    &:nth-child(even)
+      margin-right: 0px
+
+    h1
+      padding: 20px 20px
+      color: white
+      width: 45%
+      +font(30,36)
+
+    div
+      +block(auto, 200px)
+      position: absolute
+      top: 0px
+      right: 0px
+      background: $blue
+      img
+        height: 100%
+
+    &:hover
+      h1
+        color: $blue
+      img
+        opacity: 0.5
+
++mq(s)
+  .projects a
+    width: 100%
+    margin-right: 0px
+// Styling for Galleries
+.gallery
+  display: block
+  width: 80%
+  margin: 50px auto
+  a
+    display: block
+    float: left
+    background: $blue
+    margin: 0px 5px 5px 0px
+    img
+      display: block
+      height: 200px
+      width: auto
+    &:hover img
+      opacity: 0.5
+
++mq(s)
+  .gallery
+    a img
+      width: 100%
+      height: auto

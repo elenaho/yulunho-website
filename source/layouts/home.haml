@@ -1,0 +1,14 @@
+!!!
+%html
+  = partial "partials/head"
+  %body.home
+    = partial "partials/header"
+
+    %section.home_slide
+      - first = true
+      - current_page.data.slideshow.each do |img|
+        - if first
+          - first = false
+          %div.visible{style: "background-image: url('images/#{img}');'"}
+        - else
+          %div{style: "background-image: url('images/#{img}');'"}

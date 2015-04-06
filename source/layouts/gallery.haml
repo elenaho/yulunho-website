@@ -1,0 +1,15 @@
+!!!
+%html
+  = partial "partials/head"
+  %body
+    = partial "partials/header"
+
+    %article.project
+      %h1= current_page.data.title
+
+    %section.gallery
+      - current_page.data.works.each do |project|
+        %a{href: "#"}
+          = image_tag project.image
+
+    = partial "partials/lightbox"

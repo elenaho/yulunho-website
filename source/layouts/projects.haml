@@ -1,0 +1,16 @@
+!!!
+%html
+  = partial "partials/head"
+  %body
+    = partial "partials/header"
+
+    %article.project
+      %h1= current_page.data.title
+
+    %section.projects
+      -# all public projects
+      - blog.articles.select {|a| a.data[:public] }.each do |project|
+        %a{href: project.url}
+          %h1= project.title
+          %div
+            = image_tag project.data.cover
