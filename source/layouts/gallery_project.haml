@@ -6,9 +6,10 @@
 
     %article.project
       %h1= current_page.data.title
-      %section.desc
-        %div
-          %p= current_page.data.description
+      - if current_page.data.description != "none"
+        %section.desc
+          %div
+            %p= current_page.data.description
 
     %section.gallery
       - current_page.data.works.each do |project|
